@@ -27,3 +27,23 @@ This will be the high level flow of the data, initally the api will call DB, whi
 ![Untitled-2023-03-17-1604(9)](https://github.com/myan-ish/midori/assets/48282663/2d6a642a-6321-4dec-9dbc-326dac7991c4)
 
 ### Database
+
+#### Schema and APIs
+
+![Untitled-2023-04-20-1131(12)](https://github.com/myan-ish/midori/assets/48282663/4344d385-c8b7-47b4-bd0a-3d90dc5add95)
+
+#### Main Table
+
+![Untitled-2023-04-20-1131(8)](https://github.com/myan-ish/midori/assets/48282663/ab5ce2fe-f3d5-4f50-8cef-a53c4d7794bd)
+
+#### Global Index
+
+![Untitled-2023-04-20-1131(9)](https://github.com/myan-ish/midori/assets/48282663/41eefbf5-e7c5-4193-a0fe-933d16ca616d)
+
+#### Text Index
+
+![Untitled-2023-04-20-1131(10)](https://github.com/myan-ish/midori/assets/48282663/2391ef8d-f8cb-4db6-8ab9-de18e1314918)
+
+
+
+
