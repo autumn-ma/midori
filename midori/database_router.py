@@ -8,16 +8,20 @@ class ShardedRouter:
                 return self.get_shard_alias(url)
         return None
 
-    def db_for_write(self, model, **hints):
-        if model.__name__ == "Page":
-            instance = hints.get('instance')
-            if instance and hasattr(instance, 'url'):
-                url = instance.url
-                return self.get_shard_alias(url)
-        return None
+    # def db_for_write(self, model, **hints):
+    #     if model.__name__ == "Page":
+    #         instance = hints.get('instance')
+    #         if instance and hasattr(instance, 'url'):
+    #             url = instance.url
+    #             return self.get_shard_alias(url)
+    #     return None
 
     def get_shard_alias(self, url):
         hash = hashlib.sha256(url.encode()).hexdigest()
+        shard = int(hash, 16) % 4
+        return f"shard{shard}", hash
+    
+    def get_shard_alias_from_hash(self, hash):
         shard = int(hash, 16) % 4
         return f"shard{shard}"
     

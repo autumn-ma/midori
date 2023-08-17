@@ -41,13 +41,19 @@ class PageViewSet(ModelViewSet):
         combined_qs = list(chain(qs_shard0, qs_shard1, qs_shard2, qs_shard3, qs_default))
         combined_qs = ListAsQuerySet(combined_qs, model=Page)
         return combined_qs
+        
     
     @action(detail=False, methods=['get'], url_path='get_by_url/(?P<url>.+)')
     def get_by_url(self, request, url):
-        shard_alias = ShardedRouter().get_shard_alias(url)
-        print(url,shard_alias)
+        print(f"get_by_url: {url}")
+        shard_alias = ShardedRouter().get_shard_alias(url)[0]
         page = Page.objects.using(shard_alias).get(url=url)
         serializer = PageSerializer(page)
         return Response(serializer.data)
 
-        
+    @action(detail=False, methods=['get'], url_path='get_by_hash/(?P<hash>.+)')
+    def get_by_hash(self, request, hash):
+        shard_alias = ShardedRouter().get_shard_alias_from_hash(hash)
+        page = Page.objects.using(shard_alias).get(hash=hash)
+        serializer = PageSerializer(page)
+        return Response(serializer.data)

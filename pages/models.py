@@ -20,8 +20,9 @@ class Page(models.Model):
         if not self.pk:
             # If it's a new Page object, determine the shard alias based on the URL
             shard_alias = ShardedRouter().get_shard_alias(self.url)
-            print(shard_alias)
-            using = shard_alias
+            using = shard_alias[0]
+            print(f"Using: {using}, url: {self.url}")
+            self.hash = shard_alias[1]
             kwargs['using'] = using
 
             table_name = self._meta.db_table
