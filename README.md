@@ -1,7 +1,6 @@
 # Midori
 
-System design and implementation for a web crawler. \
-Inspiration from --> https://www.youtube.com/watch?v=0LTXCcVRQi0
+System design and implementation for a web crawler.
 
 <p align="center">
 <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/48282663/243183222-2e97f423-5dd6-4cdb-858d-883aa22d1471.png">
